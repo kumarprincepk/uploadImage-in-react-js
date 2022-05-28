@@ -21,15 +21,17 @@ export default function UploadImage() {
     <>
     <h1>Upload Profile Picture</h1>
 <form className='uploadimage'>
-    {preview ? (<img src={preview}  className="imagesize" />) : (
-    <button
+    {preview ? (<img src={preview} style={{cursor:"pointer"}} onClick={(e)=>{e.preventDefault();
+    fileInputRef.current.click();
+    }}  className="imagesize" />) : (
+    <button style={{cursor:"pointer"}}
     onClick={(e)=>{e.preventDefault();
     fileInputRef.current.click();
     }}
     className="imagesize">
     Add image
     </button>)}
-    <input type="file" style={{display:"none"}} ref={fileInputRef}
+    <input type="file" style={{display:"none" , cursor:"pointer"}} ref={fileInputRef}
     accept="image/*"
 
         onChange={(e)=>{
